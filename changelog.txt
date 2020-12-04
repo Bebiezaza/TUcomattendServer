@@ -1,0 +1,11 @@
+==== Change Log ====
+
++ = Added
+- = Removed
+* = Changed, Tweaked, Fixed
+
+	
+Alpha 1.0.0
+	+ main style sheet
+	+ main login page
+	+ login info passing test

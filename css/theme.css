@@ -1,0 +1,63 @@
+#TUlogo {
+    height: 3rem; vertical-align: middle
+}
+
+header {
+    background-color: #F6BF3E;
+    font-family: 'Kanit', serif;
+}
+
+p.header {
+    padding: 10px;
+
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+div.login {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+input.login {
+  background-color: #00b309;   
+  width: 340px;
+  padding: 10px;
+  border: 2px solid #00b308;
+
+  color: white;
+  font-family: 'Kanit', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+input.login:hover {
+    background-color: #008a07;   
+    width: 340px;
+    padding: 10px;
+    border: 2px solid #008a07;
+  
+    color: white;
+    font-family: 'Kanit', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    background-color: transparent;
+}
+
+a.footerlink {
+    padding: 10px;
+
+    text-decoration: none;
+    text-align: center;
+}
