@@ -4,7 +4,14 @@
 - = Removed
 * = Changed, Tweaked, Fixed
 
-	
+
+Alpha 1.0.1
+	+ automatic database initialize system
+		+ if database doesn't exist, login form changes to initialize button.
+		+ default admin username and password included
+	+ proper login system
+	* index page fonts fixed
+
 Alpha 1.0.0
 	+ main style sheet
 	+ main login page

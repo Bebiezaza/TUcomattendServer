@@ -2,6 +2,10 @@
     height: 3rem; vertical-align: middle
 }
 
+body {
+    font-family: 'Kanit', serif;
+}
+
 header {
     background-color: #F6BF3E;
     font-family: 'Kanit', serif;
