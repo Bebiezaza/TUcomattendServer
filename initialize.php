@@ -2,7 +2,7 @@
 <html lang = "th">
     <head>
         <meta charset = "utf-8">
-        <title>INITIALIZE</title>
+        <title>ตั้งค่าฐานข้อมูล</title>
     </head>
     <link href="css/theme.css" rel="stylesheet"/>
         

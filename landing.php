@@ -2,7 +2,7 @@
 <html lang = "th">
     <head>
         <meta charset = "utf-8">
-        <title>Login Passthrough Test</title>
+        <title>Login Test</title>
     </head>
     <link href="css/theme.css" rel="stylesheet"/>
         
