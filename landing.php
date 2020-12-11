@@ -28,7 +28,7 @@
 
             if ($user == "")
             {
-                echo "<font size = 6><b>ไม่ได้ระบบชื่อผู้ใช้งาน</b></font>"
+                echo "<font size = 6><b>ไม่ได้ลงชื่อผู้ใช้งาน</b></font>"
                 ?><form method = post action = index.php>
                     <input type = submit value = "กลับไปเข้าสู่ระบบ">
                 </form><?php
