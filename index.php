@@ -27,7 +27,7 @@
         {
             ?>
             <center><form method = "post" action = "initialize.php" autocomplete = "off">
-                <input class = "login" type = "submit" value = "> INITIALIZE <">
+                <input class = "login" type = "submit" value = "> ตั้งค่าฐานข้อมูล <">
             </form></center>
             <?php
         }

@@ -18,34 +18,25 @@
             <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
         </header>
 
-        <?php
+        <center><?php
             include('globalvar.inc');
-
+            include('function/sql.php');
             $conn = mysqli_connect($sql_server, $sql_username, $sql_password);
 
             $user = $_POST["login_name"];
             $pass = $_POST["login_pass"];
 
-echo "DB SERVER: " . $sql_server;
-echo "<br>DB USERNAME: " . $sql_username;
-echo "<br>DB PASSWORD: ". $sql_password;
-echo "<br>USERNAME: " . $user;
-echo "<br>PASSWORD: ". $pass . "<br>";
-
             if ($user == "")
             {
-                echo "<font size = 6><b>NO ROOM SPECIFIED!!</b></font>"
+                echo "<font size = 6><b>ไม่ได้ระบบชื่อผู้ใช้งาน</b></font>"
                 ?><form method = post action = index.php>
-                    <input type = submit value = "Back to Login">
+                    <input type = submit value = "กลับไปเข้าสู่ระบบ">
                 </form><?php
                 die;
             }
 
             //select database
-            if (!mysqli_select_db($conn, "TUcomattend"))
-            {
-                echo "<br>Error Using Database: " . mysqli_error($conn);
-            }
+            selectDB($conn, "TUcomattend");
 
             $sql = "SELECT * from admin_login WHERE username = '$user'";
             if($result = mysqli_query($conn, $sql))
@@ -57,17 +48,17 @@ echo "<br>PASSWORD: ". $pass . "<br>";
                     {
                         if ($user != $row["username"])
                         {
-                            echo "<font size = 6><b>ROOM NOT REGISTERED!!</b></font>";
+                            echo "<font size = 6><b>ไม่มีชื่อผู้ใช้นี้ในระบบ</b></font>";
                             ?><form method = post action = index.php>
-                                <input type = submit value = "Back to Login">
+                                <input type = submit value = "กลับไปเข้าสู่ระบบ">
                             </form><?php
                             die;
                         }
                         elseif ($pass != $row["password"])
                         {
-                            echo "<font size = 6><b>WRONG PASSWORD!!</b></font>";
+                            echo "<font size = 6><b>รหัสผ่านผิด</b></font>";
                             ?><form method = post action = index.php>
-                                <input type = submit value = "Back to Login">
+                                <input type = submit value = "กลับไปเข้าสู่ระบบ">
                             </form><?php
                             die;
                         }
@@ -76,9 +67,9 @@ echo "<br>PASSWORD: ". $pass . "<br>";
                 }
                 else
                 {
-                    echo "<font size = 6><b>ROOM NOT REGISTERED!!</b></font>";
+                    echo "<font size = 6><b>ไม่มีชื่อผู้ใช้นี้ในระบบ</b></font>";
                     ?><form method = post action = index.php>
-                        <input type = submit value = "Back to Login">
+                        <input type = submit value = "กลับไปเข้าสู่ระบบ">
                     </form><?php
                     die;
                 }
@@ -86,4 +77,8 @@ echo "<br>PASSWORD: ". $pass . "<br>";
 
             echo "<font size = 8>Welcome, " . $user . ". </font>";
         ?>
+
+        <form method = post action = index.php>
+            <input type = submit value = "ออกจากระบบ">
+        </form></center>
         </body>

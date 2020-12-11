@@ -5,6 +5,10 @@
 * = Changed, Tweaked, Fixed
 
 
+Alpha 1.0.2
+	* initialize.php code refactor
+	* translation
+
 Alpha 1.0.1
 	+ automatic database initialize system
 		+ if database doesn't exist, login form changes to initialize button.

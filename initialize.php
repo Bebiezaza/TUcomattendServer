@@ -18,102 +18,53 @@
             <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
         </header>
 
-<?php
-    include('globalvar.inc');
-    $conn = mysqli_connect($sql_server, $sql_username, $sql_password);
+        <?php
+            include('globalvar.inc');
+            include('function/sql.php');
+            $conn = mysqli_connect($sql_server, $sql_username, $sql_password);
 
-//check connection
-    if (!$conn)
-    {
-        die("<h1>Connection Failed: " . mysqli_connect_error()) . "</h1><br>";
-    }
-    
-//create database
-    $sql = "CREATE DATABASE TUcomattend COLLATE utf8_general_ci;";
-    if (!mysqli_query($conn, $sql))
-    {
-        die("Error Creating Database: " . mysqli_error($conn)) . "</h1><br>";
-    }
-    else
-    {
-        echo "Database 'TUcomattend' Created Successfully<br>";
-    }
+        //check connection
+            if (!$conn)
+            {
+                echo "<h1>Connection Failed: " . mysqli_connect_error() . "</h1><br>";
+            }
+            
+        //create tucomattend database
+            $sql = "CREATE DATABASE TUcomattend COLLATE utf8_general_ci;";
+            work($conn, $sql, "Database 'TUcomattend' Created Successfully", "Error Creating Database: ", false);
 
+        //select database
+            selectDB($conn, "TUcomattend");
 
-//create table
-    $sql = "CREATE TABLE admin_login( 
-    username varchar(20), 
-    password varchar(16), 
-    primary key(username));";
-    
-    //select database
-    if (!mysqli_select_db($conn, "TUCOMATTEND"))
-    {
-        echo "<h1>Error Using Database: " . mysqli_error($conn) . "</h1><br>";
-        death($conn);
-    }
-    else
-    {
-        echo "Database 'TUcomattend' Select Successfully<br>";
-    }
+        //create admin_login table
+            $sql = "CREATE TABLE admin_login( 
+            username varchar(20), 
+            password varchar(16), 
+            primary key(username));";
 
-    //create table
-    if (!mysqli_query($conn, $sql))
-    {
-        echo "<h1>Error Creating Table: " . mysqli_error($conn) . "</h1><br>";
-        death($conn);
-    }
-    else
-    {
-        echo "Table 'admin_login' Created Successfully<br>";
-    }
+            //create table
+            work($conn, $sql, "Table 'admin_login' Created Successfully", "Error Creating Table: ", true);
 
-//add default admin login
-    $sql = "INSERT INTO admin_login
-    VALUES ('admin', 'root');";
+        //add default admin login
+            $sql = "INSERT INTO admin_login
+            VALUES ('admin', 'root');";
 
-    //select database
-    if (!mysqli_select_db($conn, "TUCOMATTEND"))
-    {
-        echo "<h1>Error Using Database: " . mysqli_error($conn) . "</h1><br>";
-        death($conn);
-    }
-    else
-    {
-        echo "Database 'TUcomattend' Select Successfully<br>";
-    }
+            //write table
+            work($conn, $sql, "Data Written to Table 'admin_login' Successfully", "Error Writing Data to Table: ", true);
 
-    //write table
-    if (!mysqli_query($conn, $sql))
-    {
-        echo "<h1>Error Writing Data to Table: " . mysqli_error($conn) . "</h1><br>";
-        death($conn);
-    }
-    else
-    {
-        echo "Data Written to Table 'admin_login' Successfully<br>";
-    }
+        //create student_login table
+            $sql = "CREATE TABLE student_login( 
+            username varchar(5), 
+            password varchar(16), 
+            primary key(username));";
 
-    //drop database (error function)
-    function death($conn)
-    {
-        $sql = "DROP DATABASE TUcomattend;";
-        
-        if (!mysqli_query($conn, $sql))
-        {
-        die("Error Deleting Database: " . mysqli_error($conn));
-        }
-        else
-        {
-        die("Database Deleted Successfully<br>");
-        }
-    }
+            //create table
+            work($conn, $sql, "Table 'student_login' Created Successfully", "Error Creating Table: ", true);
 
-    echo "<h1>Operation Finished</h1>";
-    mysqli_close($conn);
-?>
-
-        <form action = "index.php">
-            <input type = "submit" value = "Back to Main Page">
+        //sql disconnect
+            mysqli_close($conn);
+        ?>
+        <form method = post action = "index.php">
+            <input type = "submit" value = "กลับไปหน้าหลัก">
         </form>
 </body>
