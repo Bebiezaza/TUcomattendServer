@@ -35,14 +35,14 @@
         {
             echo "Error Deleting Database: " . mysqli_error($conn);
             mysqli_close($conn);
-            echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'Back to Main Page'></form>";
+            echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'กลับสู่หน้าหลัก'></form>";
             die;
         }
         else
         {
             echo "Database Deleted Successfully<br>";
             mysqli_close($conn);
-            echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'Back to Main Page'></form>";
+            echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'กลับสู่หน้าหลัก'></form>";
             die;
         }
     }

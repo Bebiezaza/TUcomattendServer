@@ -55,7 +55,8 @@
         //create student_login table
             $sql = "CREATE TABLE student_login( 
             username varchar(5), 
-            password varchar(16), 
+            password varchar(16),
+            birthday varchar(10), 
             primary key(username));";
 
             //create table
@@ -65,6 +66,6 @@
             mysqli_close($conn);
         ?>
         <form method = post action = "index.php">
-            <input type = "submit" value = "กลับไปหน้าหลัก">
+            <input type = "submit" value = "กลับสู่หน้าหลัก">
         </form>
 </body>

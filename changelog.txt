@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Alpha 1.0.2_02
+	+ add field for students' birthdays
+
 Alpha 1.0.2
 	* initialize.php code refactor
 	* translation
