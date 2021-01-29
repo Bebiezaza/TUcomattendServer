@@ -1,11 +1,3 @@
-#TUlogo {
-    height: 3rem; vertical-align: middle
-}
-
-body {
-    font-family: 'Kanit', serif;
-}
-
 header {
     background-color: #F6BF3E;
     font-family: 'Kanit', serif;
@@ -18,6 +10,14 @@ p.header {
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+#TUlogo {
+    height: 3rem; vertical-align: middle
+}
+
+body {
+    font-family: 'Kanit', serif;
 }
 
 div.login {

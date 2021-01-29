@@ -19,9 +19,9 @@
         </header>
 
         <center><?php
-            include('globalvar.inc');
+            include('config.php');
             include('function/sql.php');
-            $conn = mysqli_connect($sql_server, $sql_username, $sql_password);
+            $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
             $user = $_POST["login_name"];
             $pass = $_POST["login_pass"];
@@ -75,10 +75,51 @@
                 }
             }
 
-            echo "<font size = 8>Welcome, " . $user . ". </font>";
+            //echo "<font size = 8>Welcome, " . $user . ". </font>";
         ?>
-
+        <table>
+        <tr>
+        <td><center>
         <form method = post action = index.php>
-            <input type = submit value = "ออกจากระบบ">
-        </form></center>
+                <input type = submit value = "เพิ่มข้อมูลห้องเรียน">
+            </form>
+        </td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td><center>
+            <form>
+                <label>เลือกห้อง
+                    <input list="browsers" name="myBrowser" /></label>
+                    <datalist id="browsers">
+                    <option value="835">
+                    <option value="845">
+                </datalist><br>
+                <input type = submit value = "แสดงข้อมูลจากห้องที่เลือก">
+            </form>
+        </td></center>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        </table>
+        <table>
+        <tr>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <td><center>
+        <form>
+                <label>เลือกคอมพิวเตอร์
+                    <input list="browsers2" name="myBrowser2" /></label>
+                    <datalist id="browsers2">
+                    <option value="192.168.100.25">
+                    <option value="คอม 2">
+                </datalist><br>
+                <input type = submit value = "แสดงข้อมูลจากคอมพิวเตอร์ที่เลือก">
+            </form>
+        </td></center>
+        </table>
+        <br><br><br>
+            <form method = post action = index.php>
+                <input type = submit value = "ออกจากระบบ">
+            </form></center>
         </body>

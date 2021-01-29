@@ -19,14 +19,14 @@
         <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
     </header>
     <?php
-        include('globalvar.inc');
+        include('config.php');
 
-        $conn = mysqli_connect($sql_server, $sql_username, $sql_password);
+        $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
         if (!mysqli_select_db($conn, "TUCOMATTEND"))
         {
             ?>
-            <center><form method = "post" action = "initialize.php" autocomplete = "off">
+            <center><form method = "post" action = "config/index.php" autocomplete = "off">
                 <input class = "login" type = "submit" value = "> ตั้งค่าฐานข้อมูล <">
             </form></center>
             <?php
