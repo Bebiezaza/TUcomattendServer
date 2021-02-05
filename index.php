@@ -37,11 +37,12 @@
     ?>
 
         <center><div class = "login"><form method = "post" action = "landing.php" autocomplete = "off">
-            <label for = "login_name">ชื่อผู้ใช้</label><br>
-            <input id = "login_name" type = "text" name = "login_name"><br><br>
+            <input type = "hidden" type = "text" name = "homesubmit" value = "true">
+            <label for = "user">ชื่อผู้ใช้</label><br>
+            <input id = "user" type = "text" name = "user"><br><br>
             
-            <label for = "login_name">รหัสผ่าน</label><br>
-            <input id = "login_pass" type = "password" name = "login_pass"><br>
+            <label for = "pass">รหัสผ่าน</label><br>
+            <input id = "pass" type = "password" name = "pass"><br>
             </div>
             <input class = "login" type = "submit" value = "> เข้าสู่ระบบ <">
         </form></center>
@@ -51,3 +52,4 @@
             <a class = "footerlink" href="http://www.triamudom.ac.th">โรงเรียนเตรียมอุดมศึกษา</a>
         </footer>
     </body>
+</html>

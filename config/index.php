@@ -116,7 +116,7 @@
             primary key(username));";
 
             //create table
-            work($conn, $sql, "Table 'admin_login' Created Successfully", "Error Creating Table: ", true, "");
+            work($conn, $sql, "Table 'admin_login' Created Successfully", "Error Creating 'admin_login' Table: ", true, "");
             
         //create student_login table
         $sql = "CREATE TABLE student_login( 
@@ -126,17 +126,26 @@
             primary key(username));";
 
             //create table
-            work($conn, $sql, "Table 'student_login' Created Successfully", "Error Creating Table: ", true, "");
+            work($conn, $sql, "Table 'student_login' Created Successfully", "Error Creating 'student_login' Table: ", true, "");
 
         //create computer_log table
         $sql = "CREATE TABLE computer_log( 
             datetime varchar(19),
-            comip varchar(16), 
+            com_ip varchar(16), 
             username varchar(5),
             primary key(datetime));";
 
             //create table
-            work($conn, $sql, "Table 'computer_log' Created Successfully", "Error Creating Table: ", true, "");
+            work($conn, $sql, "Table 'computer_log' Created Successfully", "Error Creating 'computer_log' Table: ", true, "");
+
+        //create computer_select table
+        $sql = "CREATE TABLE computer_select( 
+            com_name varchar(255),
+            com_ip varchar(16), 
+            primary key(com_name));";
+
+            //create table
+            work($conn, $sql, "Table 'computer_select' Created Successfully", "Error Creating 'computer_select' Table: ", true, "");
             
         //sql disconnect
             mysqli_close($conn);
@@ -196,3 +205,4 @@
             <a class = "footerlink" href="http://www.triamudom.ac.th">โรงเรียนเตรียมอุดมศึกษา</a>
         </footer>
     </body>
+</html>

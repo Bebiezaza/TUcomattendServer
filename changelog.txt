@@ -5,6 +5,11 @@
 * = Changed, Tweaked, Fixed
 
 
+Alpha 1.1.2
+	+ computer IP to computer name handler
+		+ computer IP-name connection form
+	+ show computer attendance separated by computer IPs (names)
+	
 Alpha 1.1.1
 	+ add table for logging attendance through client computer
 	+ admin passwords encrypted

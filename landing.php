@@ -2,7 +2,7 @@
 <html lang = "th">
     <head>
         <meta charset = "utf-8">
-        <title>Login Test</title>
+        <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
     </head>
     <link href="css/theme.css" rel="stylesheet"/>
         
@@ -19,19 +19,27 @@
         </header>
 
         <center><?php
+            error_reporting(0);
             include('config.php');
             include('function/sql.php');
             $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
-            $user = $_POST["login_name"];
-            $pass = $_POST["login_pass"];
-
+            $user = $_POST["user"];
+            if ($_POST["homesubmit"] == "true") {
+                $pass = md5($_POST["pass"]);
+            }
+            else {
+                $pass = $_POST["pass"];
+            }
+            
             if ($user == "")
             {
-                echo "<font size = 6><b>ไม่ได้ลงชื่อผู้ใช้งาน</b></font>"
-                ?><form method = post action = index.php>
-                    <input type = submit value = "กลับไปเข้าสู่ระบบ">
-                </form><?php
+?>
+                <p class="header">ไม่ได้ลงชื่อผู้ใช้งาน</p>
+                <form method = post action = index.php>
+                    <input class = "login_fail" type = submit value = "> กลับไปเข้าสู่ระบบ <">
+                </form>
+<?php
                 die;
             }
 
@@ -48,18 +56,22 @@
                     {
                         if ($user != $row["username"])
                         {
-                            echo "<font size = 6><b>ไม่มีชื่อผู้ใช้นี้ในระบบ</b></font>";
-                            ?><form method = post action = index.php>
-                                <input type = submit value = "กลับไปเข้าสู่ระบบ">
-                            </form><?php
+?>
+                            <p class="header">ไม่มีชื่อผู้ใช้นี้ในระบบ</p>
+                            <form method = post action = index.php>
+                                <input class = "login_fail" type = submit value = "> กลับไปเข้าสู่ระบบ <">
+                            </form>
+<?php
                             die;
                         }
                         elseif ($pass != $row["password"])
                         {
-                            echo "<font size = 6><b>รหัสผ่านผิด</b></font>";
-                            ?><form method = post action = index.php>
-                                <input type = submit value = "กลับไปเข้าสู่ระบบ">
-                            </form><?php
+?>
+                            <p class="header">รหัสผ่านผิด</p>
+                            <form method = post action = index.php>
+                                <input class = "login_fail" type = submit value = "> กลับไปเข้าสู่ระบบ <">
+                            </form>
+<?php
                             die;
                         }
                     }
@@ -67,59 +79,42 @@
                 }
                 else
                 {
-                    echo "<font size = 6><b>ไม่มีชื่อผู้ใช้นี้ในระบบ</b></font>";
-                    ?><form method = post action = index.php>
-                        <input type = submit value = "กลับไปเข้าสู่ระบบ">
-                    </form><?php
+?>
+                    <p class="header">ไม่มีชื่อผู้ใช้นี้ในระบบ</p>
+                    <form method = post action = index.php>
+                        <input class = "login_fail" type = submit value = "> กลับไปเข้าสู่ระบบ <">
+                    </form>
+<?php
                     die;
                 }
             }
+?>
 
-            //echo "<font size = 8>Welcome, " . $user . ". </font>";
-        ?>
-        <table>
-        <tr>
-        <td><center>
-        <form method = post action = index.php>
-                <input type = submit value = "เพิ่มข้อมูลห้องเรียน">
-            </form>
-        </td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        <td><center>
-            <form>
-                <label>เลือกห้อง
-                    <input list="browsers" name="myBrowser" /></label>
-                    <datalist id="browsers">
-                    <option value="835">
-                    <option value="845">
-                </datalist><br>
-                <input type = submit value = "แสดงข้อมูลจากห้องที่เลือก">
-            </form>
-        </td></center>
-        </tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        </table>
-        <table>
-        <tr>
-        </tr>
-        <tr></tr>
-        <tr></tr>
-        <tr></tr>
-        <td><center>
-        <form>
-                <label>เลือกคอมพิวเตอร์
-                    <input list="browsers2" name="myBrowser2" /></label>
-                    <datalist id="browsers2">
-                    <option value="192.168.100.25">
-                    <option value="คอม 2">
+            <form method = "post" action = "handler/addcomputerHandler.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input type = "submit" value = "เชื่อมโยงคอมพิวเตอร์กับไอพี">
+            </form><br><br>
+            
+            <form method = "post" action = "fetch/computerLogFetcher.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <label for = "com_name">เลือกคอมพิวเตอร์:</label><br>
+                    <input list="com_name" name="com_name" />
+                    <datalist id="com_name">
+<?php
+                    $db_com_name = mysqli_query($conn, "SELECT com_name FROM computer_select") or die(mysql_error()); 
+                    while($row = mysqli_fetch_array($db_com_name)) 
+                    { 
+                        echo"<option value=" . $row['com_name'] . ">"; 
+                    }
+?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากคอมพิวเตอร์ที่เลือก">
             </form>
-        </td></center>
-        </table>
-        <br><br><br>
+
             <form method = post action = index.php>
-                <input type = submit value = "ออกจากระบบ">
-            </form></center>
+                <input class = "login" type = submit value = "ออกจากระบบ">
+            </form>
+            </center>
         </body>
