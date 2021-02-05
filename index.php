@@ -19,6 +19,7 @@
         <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
     </header>
     <?php
+        error_reporting(0);
         include('config.php');
 
         $conn = mysqli_connect($db_host, $db_user, $db_pass);

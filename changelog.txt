@@ -5,6 +5,10 @@
 * = Changed, Tweaked, Fixed
 
 
+Alpha 1.1.1
+	+ add table for logging attendance through client computer
+	+ admin passwords encrypted
+
 Alpha 1.1.0
 	+ implements customizable database initialize system
 	- removes old database initialize system

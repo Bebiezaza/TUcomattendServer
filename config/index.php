@@ -52,9 +52,9 @@
             //select database
                 selectDB($conn, "TUcomattend");
                 
-            //add default admin login
+            //add admin login
                 $sql = "INSERT INTO admin_login
-                VALUES ('$admin_user', '$admin_pass');";
+                VALUES ('$admin_user', MD5('$admin_pass'));";
 
                 //write table
                 work($conn, $sql, "Data Written to Table 'admin_login' Successfully", "Error Writing Data to Table: ", true, "");
@@ -112,7 +112,7 @@
         //create admin_login table
             $sql = "CREATE TABLE admin_login( 
             username varchar(20), 
-            password varchar(16), 
+            password varchar(32), 
             primary key(username));";
 
             //create table
@@ -120,13 +120,23 @@
             
         //create student_login table
         $sql = "CREATE TABLE student_login( 
-            username varchar(5), 
-            password varchar(16),
+            username int(5), 
+            password varchar(32),
             birthday varchar(10), 
             primary key(username));";
 
             //create table
             work($conn, $sql, "Table 'student_login' Created Successfully", "Error Creating Table: ", true, "");
+
+        //create computer_log table
+        $sql = "CREATE TABLE computer_log( 
+            datetime varchar(19),
+            comip varchar(16), 
+            username varchar(5),
+            primary key(datetime));";
+
+            //create table
+            work($conn, $sql, "Table 'computer_log' Created Successfully", "Error Creating Table: ", true, "");
             
         //sql disconnect
             mysqli_close($conn);
