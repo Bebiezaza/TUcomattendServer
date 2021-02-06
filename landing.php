@@ -5,6 +5,7 @@
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
     </head>
     <link href="css/theme.css" rel="stylesheet"/>
+    <link href="css/paddedtable.css" rel="stylesheet"/>
         
 <style>
     @font-face {
@@ -89,13 +90,19 @@
                 }
             }
 ?>
+        <table cellpadding=5>
+        <tr>
+        <th></th><th>ด้านการเชื่อมโยงข้อมูล</th><th>ด้านการเรียกข้อมูล</th>
+        </tr><tr>
+        <td><h3>คอมพิวเตอร์</h3></td>
+        <td>
             <!-- computer ip-name connection -->
             <form method = "post" action = "handler/addComputerHandler.php" autocomplete = "off">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
                 <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                 <input type = "submit" value = "เชื่อมโยงคอมพิวเตอร์กับไอพี">
-            </form><br><br>
-            
+            </form>
+        </td><td>
             <!-- show log for computer -->
             <form method = "post" action = "fetch/computerLogFetcher.php" autocomplete = "off">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
@@ -109,11 +116,15 @@
                     { 
                         echo"<option value=" . $row['com_name'] . ">"; 
                     }
+                    mysqli_free_result($result);
 ?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากคอมพิวเตอร์ที่เลือก">
             </form>
-
+        </td>
+        </tr><tr>
+        <td><h3>ห้องเรียน</h3></td>
+        <td>
             <!-- student-class connection -->
             <form method = "post" action = "handler/addStudentToClassHandler.php" autocomplete = "off">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
@@ -127,7 +138,7 @@
                 <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                 <input type = "submit" value = "เริ่มปีการศึกษาใหม่">
             </form>
-            
+        </td><td>
             <!-- show log for classroom -->
             <form method = "post" action = "fetch/classroomLogFetcher.php" autocomplete = "off">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
@@ -141,11 +152,18 @@
                     { 
                         echo"<option value=" . $row['classroom'] . ">"; 
                     }
+                    mysqli_free_result($result);
 ?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากห้องเรียนที่เลือก">
-            </form><br><br>
-
+            </form>
+        </td>
+        </tr>
+        </table><br>
+<?php
+            //sql disconnect
+            mysqli_close($conn);
+?>
             <form method = post action = index.php>
                 <input class = "login" type = submit value = "> ออกจากระบบ <">
             </form>

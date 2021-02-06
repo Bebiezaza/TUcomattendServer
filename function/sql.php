@@ -14,7 +14,7 @@
     {
         if (!mysqli_query($conn, $sql))
         {
-            echo "<h1>" . $fail . mysqli_error($conn) . "</h1><br>";
+            echo "<h3>" . $fail . mysqli_error($conn) . "</h3><br>";
             if($death == true)
             {
                 death($conn);
@@ -33,14 +33,14 @@
         
         if (!mysqli_query($conn, $sql))
         {
-            echo "Error Deleting Database: " . mysqli_error($conn);
+            echo "Error Reseting System: " . mysqli_error($conn);
             mysqli_close($conn);
             echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'กลับสู่หน้าหลัก'></form>";
             die;
         }
         else
         {
-            echo "Database Deleted Successfully<br>";
+            echo "System Reset Successfully<br>";
             mysqli_close($conn);
             echo "<form method = 'post' action = 'index.php'><input type = 'submit' value = 'กลับสู่หน้าหลัก'></form>";
             die;

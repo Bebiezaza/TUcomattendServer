@@ -33,14 +33,14 @@
         
         if (!mysqli_query($conn, $sql))
         {
-            echo "Error Deleting Database: " . mysqli_error($conn);
+            echo "Error Reseting System: " . mysqli_error($conn);
             mysqli_close($conn);
             echo "<form method = 'post' name = $formbehave action = 'index.php'><input type = 'submit' value = '← ย้อนกลับ'></form>";
             die;
         }
         else
         {
-            echo "Database Deleted Successfully<br>";
+            echo "System Reset Successfully<br>";
             mysqli_close($conn);
             echo "<form method = 'post' name = $formbehave action = 'index.php'><input type = 'submit' value = '← ย้อนกลับ'></form>";
             die;

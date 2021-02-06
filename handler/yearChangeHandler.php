@@ -49,6 +49,9 @@
 
             //create table
             work($conn, $sql, "<h3>หลังจากเปลี่ยนปีการศึกษาแล้ว อย่าลืมเชื่อมรหัสนักเรียนกับห้องเรียนใหม่ด้วย</h3>", "Error Creating 'classroom_info' Table: ", false);
+
+        //sql disconnect
+        mysqli_close($conn);
 ?>        
         <form method = "post" action = "../landing.php">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>

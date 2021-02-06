@@ -21,12 +21,15 @@
 <?php
         include('../config.php');
         include('../function/sql.php');
-        $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
         $user = $_POST["user"];
         $pass = $_POST["pass"];
         $com_name = $_POST["com_name"];
 
+    if(!$com_name == "")
+    {
+        $conn = mysqli_connect($db_host, $db_user, $db_pass);
+        
         selectDB($conn, "TUcomattend");
 
         $db_com_name = mysqli_query($conn, "SELECT com_ip FROM computer_select where com_name = '$com_name'"); 
@@ -44,6 +47,14 @@
             echo "<tr><td>" . $row['datetime'] . "</td><td>" . $row['com_ip'] . "</td><td>" . $row['username'] . "</td></tr>";
         } 
         echo"</table></font>";
+
+        //sql disconnect
+        mysqli_close($conn);
+    }
+    else
+    {
+        echo "<h3>ไม่ได้มีการเลือกคอมพิวเตอร์</h3>";
+    }
 ?>
         <br><form method = "post" action = "../landing.php">
             <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>

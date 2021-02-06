@@ -21,11 +21,14 @@
 <?php
         include('../config.php');
         include('../function/sql.php');
-        $conn = mysqli_connect($db_host, $db_user, $db_pass);
-
+        
         $user = $_POST["user"];
         $pass = $_POST["pass"];
         $classroom = $_POST["classroom"];
+
+    if(!$classroom == "")
+    {
+        $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
         selectDB($conn, "TUcomattend");
 
@@ -59,6 +62,14 @@
             echo "<tr><td>" . $row['datetime'] . "</td><td>" . $row['com_ip'] . "</td><td>" . $row['username'] . "</td></tr>";
         } 
         echo"</table></font>";
+
+        //sql disconnect
+        mysqli_close($conn);
+    }
+    else
+    {
+        echo "<h3>ไม่ได้มีการเลือกห้องเรียน</h3>";
+    }
 ?>
         <br><form method = "post" action = "../landing.php">
             <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
