@@ -16,7 +16,7 @@
 
     <body>
     <header>
-        <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
+        <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ BETA</p>
     </header>
     <?php
         error_reporting(0);
