@@ -34,7 +34,7 @@
             //select database
             selectDB($conn, "TUcomattend");
                 
-            //add admin login
+            //add computer info
                 $sql = "INSERT INTO computer_select
                 VALUES ('$com_name', '$com_ip');";
 

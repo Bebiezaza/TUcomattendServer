@@ -15,7 +15,7 @@
 
     <body>
         <header>
-            <p class = "header"><IMG id = "TUlogo" src = "../pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
+            <p class = "header"><IMG id = "TUlogo" src = "../pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ ต่อห้องเรียน</p>
         </header>
         <body><center>
 <?php
@@ -25,21 +25,36 @@
 
         $user = $_POST["user"];
         $pass = $_POST["pass"];
-        $com_name = $_POST["com_name"];
+        $classroom = $_POST["classroom"];
 
         selectDB($conn, "TUcomattend");
 
-        $db_com_name = mysqli_query($conn, "SELECT com_ip FROM computer_select where com_name = '$com_name'"); 
-        while($row = mysqli_fetch_array($db_com_name)) 
-        { 
-            $com_ip = $row['com_ip']; 
-        }
+        $db_classroom = mysqli_query($conn, "SELECT * FROM classroom_info where classroom = '$classroom'");
+        while($row = mysqli_fetch_array($db_classroom)) 
+        {
+            for ($i=1; $i<=50; $i++)
+            {
+                $student_id = $row["student_$i"];
 
-        $data = mysqli_query($conn, "SELECT * FROM computer_log where com_ip = '$com_ip' ORDER BY `computer_log`.`datetime` DESC"); 
+                if ($student_id != "")
+                {
+                    error_reporting(0);
+                    if (!$info)
+                    {
+                        $info = "'$student_id'";
+                    }
+                    else
+                    {
+                        $info = $info . ", '$student_id'";
+                    }
+                }
+            }
+        }
+        $data = mysqli_query($conn, "SELECT * FROM computer_log where username in ($info) ORDER BY `computer_log`.`datetime` DESC");
         echo"<font face='monospaced'><table border cellpadding=5>"; 
         echo "<tr>";
         echo "<th>Date-Time</th><th>Computer IP</th><th>Username</th></tr>";
-        while($row= mysqli_fetch_array( $data ))
+        while($row= mysqli_fetch_array($data))
         { 
             echo "<tr><td>" . $row['datetime'] . "</td><td>" . $row['com_ip'] . "</td><td>" . $row['username'] . "</td></tr>";
         } 

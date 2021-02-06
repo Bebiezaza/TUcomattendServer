@@ -5,6 +5,12 @@
 * = Changed, Tweaked, Fixed
 
 
+Alpha 1.1.3
+	+ add student to class handler
+		+ student-class connection form
+	+ academic year change button by disconnecting student-class info
+	+ show computer attendance separated by classroom
+
 Alpha 1.1.2
 	+ computer IP to computer name handler
 		+ computer IP-name connection form

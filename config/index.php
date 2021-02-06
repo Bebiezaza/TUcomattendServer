@@ -146,6 +146,22 @@
 
             //create table
             work($conn, $sql, "Table 'computer_select' Created Successfully", "Error Creating 'computer_select' Table: ", true, "");
+
+        //create classroom_info table
+            //class number loop
+            $class_no = "";
+            for ($i=1; $i<=50; $i++)
+            {
+                $class_no = $class_no . "student_" . $i . " int(5),";
+            }
+
+        $sql = "CREATE TABLE classroom_info( 
+            classroom int(3),
+            $class_no
+            primary key(classroom));";
+
+            //create table
+            work($conn, $sql, "Table 'classroom_info' Created Successfully", "Error Creating 'classroom_info' Table: ", false);
             
         //sql disconnect
             mysqli_close($conn);
