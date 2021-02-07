@@ -130,7 +130,7 @@
 
         //create computer_log table
         $sql = "CREATE TABLE computer_log( 
-            datetime varchar(19),
+            datetime varchar(20),
             com_ip varchar(16), 
             username varchar(5),
             primary key(datetime));";
