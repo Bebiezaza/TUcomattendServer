@@ -212,11 +212,11 @@
             
                 <label for = "db_user">ชื่อผู้ใช้ฐานข้อมูล:
                 <sup><a href="help.html#ชื่อผู้ใช้ฐานข้อมูล" target="_blank"> การช่วยเหลือ</a></sup></label><br>
-                <input id = "db_user" type = "text" name = "db_user" value = "admin"><br><br>
+                <input id = "db_user" type = "text" name = "db_user" value = "root"><br><br>
                 
                 <label for = "db_pass">รหัสฐานข้อมูล:
                 <sup><a href="help.html#รหัสฐานข้อมูล" target="_blank"> การช่วยเหลือ</a></sup></label><br>
-                <input id = "db_pass" type = "password" name = "db_pass" value = "root"><br><br>
+                <input id = "db_pass" type = "password" name = "db_pass" value = ""><br><br>
 
                 <input type = "submit" name = "continue1" value = "ดำเนินการต่อ →">
             </form>

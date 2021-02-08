@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.3_01
+	* minor bug fixed; register field can be empty
+	
 Beta 1.0.3
 	+ ability to add more admins
 	* confirmation before academic year change

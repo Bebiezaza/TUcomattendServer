@@ -25,6 +25,10 @@
             $admin_pass = $_POST["admin_pass"];
             $admin_conf = $_POST["admin_conf"];
 
+            if($admin_user == "")
+            {
+                echo "ไม่ได้ระบุชื่อผู้ใช้";
+            }
             if($admin_pass != $admin_conf)
             {
                 echo "ยืนยันรหัสไม่ผ่าน";
