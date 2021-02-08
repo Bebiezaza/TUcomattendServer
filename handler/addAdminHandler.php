@@ -29,8 +29,8 @@
             {
                 echo "ไม่ได้ระบุชื่อผู้ใช้";
 ?>
-                <form method = 'post' name = 'continue2' action = 'index.php'>
-                    <input type = 'submit' value = '← ย้อนกลับ'>
+                <form method = 'post' name = 'continue2' action = '../index.php'>
+                    <input class = "login" type = 'submit' value = '← ย้อนกลับ'>
                 </form>
 <?php
             }
@@ -38,8 +38,8 @@
             {
                 echo "ยืนยันรหัสไม่ผ่าน";
 ?>
-                <form method = 'post' name = 'continue2' action = 'index.php'>
-                    <input type = 'submit' value = '← ย้อนกลับ'>
+                <form method = 'post' name = 'continue2' action = '../index.php'>
+                    <input class = "login" type = 'submit' value = '← ย้อนกลับ'>
                 </form>
 <?php
                 die;
