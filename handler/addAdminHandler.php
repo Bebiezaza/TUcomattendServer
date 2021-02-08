@@ -77,7 +77,9 @@
             //sql disconnect
                 mysqli_close($conn);
 ?>
-            <form method = "post" action = "../index.php">
+            <form method = "post" action = "../landing.php">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                 <input class = "login" type = "submit" value = "เสร็จสิ้น →">
             </form>
 <?php
