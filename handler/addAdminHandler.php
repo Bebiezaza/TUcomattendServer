@@ -87,6 +87,9 @@
         {
 ?>          <h2><u>เพิ่มผู้ดูแลระบบ</u></h2>
             <form method = "post" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                
                 <label for = "admin_user">ชื่อผู้ใช้ของคุณ:</label><br>
                 <input id = "admin_user" type = "text" name = "admin_user" value = ""><br><br>
             
