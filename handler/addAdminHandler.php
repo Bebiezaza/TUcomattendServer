@@ -72,7 +72,7 @@
                 VALUES ('$admin_user', MD5('$admin_pass'));";
 
                 //write table
-                work($conn, $sql, "เพิ่มผู้ดูแลระบบสำเร็จ", "ไม่สามารถเพิ่มผู้ดูแลระบบได้: ", true, "");
+                work($conn, $sql, "เพิ่มผู้ดูแลระบบสำเร็จ", "ไม่สามารถเพิ่มผู้ดูแลระบบได้: ", false, "");
 
             //sql disconnect
                 mysqli_close($conn);
