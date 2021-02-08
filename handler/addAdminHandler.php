@@ -19,11 +19,11 @@
         </header>
         <body>
 <?php
+        $user = $_POST["user"];
+        $pass = $_POST["pass"];
+        
         if(isset($_POST['continue']))
         {
-            $user = $_POST["user"];
-            $pass = $_POST["pass"];
-
             $admin_user = $_POST["admin_user"];
             $admin_pass = $_POST["admin_pass"];
             $admin_conf = $_POST["admin_conf"];
