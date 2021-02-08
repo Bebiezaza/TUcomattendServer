@@ -5,7 +5,7 @@
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
     </head>
     <link href="css/theme.css" rel="stylesheet"/>
-    <link href="css/paddedtable.css" rel="stylesheet"/>
+    <link href="css/table.css" rel="stylesheet"/>
         
 <style>
     @font-face {
@@ -45,7 +45,7 @@
             }
 
             //select database
-            selectDB($conn, "TUcomattend");
+            selectDB($conn, "$db_name");
 
             $sql = "SELECT * from admin_login WHERE username = '$user'";
             if($result = mysqli_query($conn, $sql))
@@ -156,6 +156,19 @@
 ?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากห้องเรียนที่เลือก">
+            </form>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <h3>ข้อมูลทั้งหมด</h3>
+        </td><td></td>
+        <td>
+            <!-- show all log -->
+            <form method = "post" action = "fetch/allLogFetcher.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input type = "submit" value = "แสดงข้อมูลการใช้คอมพิวเตอร์ทั้งหมด">
             </form>
         </td>
         </tr>

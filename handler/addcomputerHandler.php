@@ -32,7 +32,7 @@
             $com_ip = $_POST["com_ip"];
 
             //select database
-            selectDB($conn, "TUcomattend");
+            selectDB($conn, "$db_name");
                 
             //add computer info
                 $sql = "INSERT INTO computer_select

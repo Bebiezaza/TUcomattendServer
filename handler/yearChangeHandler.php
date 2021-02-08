@@ -27,7 +27,7 @@
         $pass = $_POST["pass"];
 
             //select database
-            selectDB($conn, "TUcomattend");
+            selectDB($conn, "$db_name");
 
         //drop table classrooom_info
         $sql = "DROP TABLE classroom_info;";

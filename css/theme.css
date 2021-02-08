@@ -75,6 +75,11 @@ input.login_fail:hover {
     font-size: 1.2rem;
 }
 
+h3
+{
+    font-family: 'Kanit', serif;
+}
+
 footer
 {
     position: fixed;

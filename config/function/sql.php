@@ -29,7 +29,11 @@
 //drop database (error function)
     function death($conn, $formbehave)
     {
-        $sql = "DROP DATABASE TUcomattend;";
+        include('../config.php');
+        
+        $db_name = $_POST["db_name"];
+
+        $sql = "DROP DATABASE $db_name;";
         
         if (!mysqli_query($conn, $sql))
         {

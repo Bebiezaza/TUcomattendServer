@@ -30,7 +30,7 @@
     {
         $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
-        selectDB($conn, "TUcomattend");
+        selectDB($conn, "$db_name");
 
         $db_classroom = mysqli_query($conn, "SELECT * FROM classroom_info where classroom = '$classroom'");
         while($row = mysqli_fetch_array($db_classroom)) 

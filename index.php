@@ -24,7 +24,7 @@
 
         $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
-        if (!mysqli_select_db($conn, "TUCOMATTEND"))
+        if (!mysqli_select_db($conn, "$db_name"))
         {
             ?>
             <center><form method = "post" action = "config/index.php" autocomplete = "off">

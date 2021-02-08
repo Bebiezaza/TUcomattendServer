@@ -29,6 +29,7 @@
 
             if($admin_pass != $admin_conf)
             {
+                echo "ยืนยันรหัสไม่ผ่าน";
 ?>
                 <form method = 'post' name = 'continue2' action = 'index.php'>
                     <input type = 'submit' value = '← ย้อนกลับ'>
@@ -50,7 +51,7 @@
                 }
 
             //select database
-                selectDB($conn, "TUcomattend");
+                selectDB($conn, "$db_name");
                 
             //add admin login
                 $sql = "INSERT INTO admin_login
@@ -91,6 +92,7 @@
             include('function/sql.php');
 
             $db_host = $_POST["db_host"];
+            $db_name = $_POST["db_name"];
             $db_user = $_POST["db_user"];
             $db_pass = $_POST["db_pass"];
 
@@ -102,12 +104,12 @@
                 echo "<h1>Connection Failed: " . mysqli_connect_error() . "</h1><br>";
             }
 
-        //create tucomattend database
-            $sql = "CREATE DATABASE TUcomattend COLLATE utf8_general_ci;";
-            work($conn, $sql, "Database 'TUcomattend' Created Successfully", "Error Creating Database: ", true, "");
+        //create database
+            $sql = "CREATE DATABASE $db_name COLLATE utf8_general_ci;";
+            work($conn, $sql, "Database '$db_name' Created Successfully", "Error Creating Database: ", true, "");
 
         //select database
-            selectDB($conn, "TUcomattend");
+            selectDB($conn, "$db_name");
 
         //create admin_login table
             $sql = "CREATE TABLE admin_login( 
@@ -174,6 +176,10 @@
                 fwrite($mainConfig, "$");
                 fwrite($mainConfig, "db_host = '");
                 fwrite($mainConfig, "$db_host';\n");
+
+                fwrite($mainConfig, "$");
+                fwrite($mainConfig, "db_name = '");
+                fwrite($mainConfig, "$db_name';\n");
                 
                 fwrite($mainConfig, "$");
                 fwrite($mainConfig, "db_user = '");
@@ -199,6 +205,10 @@
                 <label for = "db_host">โฮสต์ฐานข้อมูล:
                 <sup><a href="help.html#โฮสต์ฐานข้อมูล" target="_blank"> การช่วยเหลือ</a></sup></label><br>
                 <input id = "db_host" type = "text" name = "db_host" value = "localhost"><br><br>
+
+                <label for = "db_name">ชื่อฐานข้อมูล:
+                <sup><a href="help.html#ชื่อฐานข้อมูล" target="_blank"> การช่วยเหลือ</a></sup></label><br>
+                <input id = "db_name" type = "text" name = "db_name" value = ""><br><br>
             
                 <label for = "db_user">ชื่อผู้ใช้ฐานข้อมูล:
                 <sup><a href="help.html#ชื่อผู้ใช้ฐานข้อมูล" target="_blank"> การช่วยเหลือ</a></sup></label><br>

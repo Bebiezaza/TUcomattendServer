@@ -53,7 +53,7 @@
             }
 
             //select database
-            selectDB($conn, "TUcomattend");
+            selectDB($conn, "$db_name");
 
                 $sql = "INSERT INTO classroom_info ($count)
                 VALUES ('$classroom', $info);";

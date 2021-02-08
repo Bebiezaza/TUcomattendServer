@@ -1,0 +1,9 @@
+td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+td h3 {
+    font-size: 1em;
+    font-family: 'Kanit', serif;
+}
