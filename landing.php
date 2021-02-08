@@ -180,6 +180,24 @@
             </form>
         </td>
         </tr>
+        <tr>
+        <td><h3>บัญชีนักเรียน</h3></td>
+        <td>
+            <!-- change student's password -->
+            <form method = "post" action = "handler/changePasswordHandler.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input type = "submit" value = "แก้ไขรหัสผ่านนักเรียน">
+            </form>
+
+            <!-- delete student's account -->
+            <form method = "post" action = "handler/deleteAccountHandler.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input type = "submit" value = "ระบบยังไม่พร้อม">
+            </form>
+        </td>
+        <td></td></tr>
         </table><br>
 <?php
             //sql disconnect

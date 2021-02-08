@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.4
+	+ student's password change ability through admins
+
 Beta 1.0.3_06
 	* redirect to wrong page
 	* i should go to sleep
