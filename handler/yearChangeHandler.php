@@ -19,44 +19,65 @@
         </header>
         <body>
 <?php
-        include('../config.php');
-        include('../function/sql.php');
-        $conn = mysqli_connect($db_host, $db_user, $db_pass);
-
         $user = $_POST["user"];
         $pass = $_POST["pass"];
 
-            //select database
-            selectDB($conn, "$db_name");
+        if(isset($_POST['continue']))
+        {
+            include('../config.php');
+            include('../function/sql.php');
+            $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
-        //drop table classrooom_info
-        $sql = "DROP TABLE classroom_info;";
+                //select database
+                selectDB($conn, "$db_name");
 
-            work($conn, $sql, "", "Error Dropping 'classroom_info' Table: ", false);
+            //drop table classrooom_info
+            $sql = "DROP TABLE classroom_info;";
 
-        //create classroom_info table
-            //class number loop
-            $class_no = "";
-            for ($i=1; $i<=50; $i++)
-            {
-                $class_no = $class_no . "student_" . $i . " int(5),";
-            }
+                work($conn, $sql, "", "Error Dropping 'classroom_info' Table: ", false);
 
-        $sql = "CREATE TABLE classroom_info( 
-            classroom int(3),
-            $class_no
-            primary key(classroom));";
+            //create classroom_info table
+                //class number loop
+                $class_no = "";
+                for ($i=1; $i<=50; $i++)
+                {
+                    $class_no = $class_no . "student_" . $i . " int(5),";
+                }
 
-            //create table
-            work($conn, $sql, "<h3>หลังจากเปลี่ยนปีการศึกษาแล้ว อย่าลืมเชื่อมรหัสนักเรียนกับห้องเรียนใหม่ด้วย</h3>", "Error Creating 'classroom_info' Table: ", false);
+            $sql = "CREATE TABLE classroom_info( 
+                classroom int(3),
+                $class_no
+                primary key(classroom));";
 
-        //sql disconnect
-        mysqli_close($conn);
+                //create table
+                work($conn, $sql, "<h3>หลังจากเปลี่ยนปีการศึกษาแล้ว อย่าลืมเชื่อมรหัสนักเรียนกับห้องเรียนใหม่ด้วย</h3>", "Error Creating 'classroom_info' Table: ", false);
+
+            //sql disconnect
+            mysqli_close($conn);
 ?>        
-        <form method = "post" action = "../landing.php">
+            <form method = "post" action = "../landing.php">
                 <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
                 <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                 <input class = "login" type = "submit" value = "> กลับสู่หน้าเดิม <">
-        </form>
+            </form>
+<?php
+        }
+        else
+        {
+?>
+        <h1><font color="red"><br>คำเตือน: การเริ่มปีการศึกษาใหม่ไม่สามารถย้อนกลับได้ <br> คุณต้องการทำต่อหรือไม่?</font></h1><br><br>
+            <form method = "post" action = "../landing.php">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input class = "login_fail" type = "submit" value = "← ย้อนกลับ">
+            </form>
+            <form method = "post">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input class = "login" type = "submit" name = "continue" value = "ดำเนินการต่อ →">
+            </form>
+<?php
+        }
+?>
 </center></body>
 </html>

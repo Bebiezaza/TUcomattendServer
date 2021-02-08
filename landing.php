@@ -161,8 +161,16 @@
         </tr>
         <tr>
         <td>
-            <h3>ข้อมูลทั้งหมด</h3>
-        </td><td></td>
+            <h3>ข้อมูลส่วนกลาง</h3>
+        </td>
+        <td>
+            <!-- add admins -->
+            <form method = "post" action = "handler/addAdminHandler.php" autocomplete = "off">
+                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                <input type = "submit" value = "เพิ่มผู้ดูแลระบบ">
+            </form>
+        </td>
         <td>
             <!-- show all log -->
             <form method = "post" action = "fetch/allLogFetcher.php" autocomplete = "off">

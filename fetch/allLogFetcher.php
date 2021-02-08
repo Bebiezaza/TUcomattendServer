@@ -15,7 +15,7 @@
 
     <body>
         <header>
-            <p class = "header"><IMG id = "TUlogo" src = "../pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ ต่อห้องเรียน</p>
+            <p class = "header"><IMG id = "TUlogo" src = "../pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ ทั้งหมด</p>
         </header>
         <body><center>
 <?php

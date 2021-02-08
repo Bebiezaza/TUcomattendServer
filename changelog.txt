@@ -5,6 +5,10 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.3
+	+ ability to add more admins
+	* confirmation before academic year change
+
 Beta 1.0.2
 	+ customizable database name
 	+ show log of all logins
