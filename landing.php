@@ -116,7 +116,7 @@
                     { 
                         echo"<option value=" . $row['com_name'] . ">"; 
                     }
-                    mysqli_free_result($result);
+                    mysqli_free_result($db_com_name);
 ?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากคอมพิวเตอร์ที่เลือก">
@@ -152,7 +152,7 @@
                     { 
                         echo"<option value=" . $row['classroom'] . ">"; 
                     }
-                    mysqli_free_result($result);
+                    mysqli_free_result($db_classroom);
 ?>
                 </datalist><br>
                 <input type = submit value = "แสดงข้อมูลจากห้องเรียนที่เลือก">

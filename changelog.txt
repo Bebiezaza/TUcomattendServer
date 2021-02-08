@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.1
+	* fixed catastrophic bug which wouldn't properly show all options in landing page
+	
 Beta 1.0.0
 	+ rearrange main interface
 	

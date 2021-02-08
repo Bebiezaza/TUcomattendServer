@@ -161,7 +161,7 @@
             primary key(classroom));";
 
             //create table
-            work($conn, $sql, "Table 'classroom_info' Created Successfully", "Error Creating 'classroom_info' Table: ", false);
+            work($conn, $sql, "Table 'classroom_info' Created Successfully", "Error Creating 'classroom_info' Table: ", false, "");
             
         //sql disconnect
             mysqli_close($conn);
