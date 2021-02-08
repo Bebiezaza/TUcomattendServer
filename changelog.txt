@@ -5,10 +5,13 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.3_05
+	* minor bug fixed: button not centered
+	
 Beta 1.0.3_04
 	* minor bug fixed: button not in theme
 	* minor bug fixed: redirect working
-	
+
 Beta 1.0.3_03
 	* minor bug fixed: missing button
 	

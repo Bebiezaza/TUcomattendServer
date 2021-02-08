@@ -79,7 +79,7 @@
         else
         {
 ?>          <h2><u>เพิ่มผู้ดูแลระบบ</u></h2>
-            <div class = "login"><form method = "post" autocomplete = "off">
+            <form method = "post" autocomplete = "off">
                 <label for = "admin_user">ชื่อผู้ใช้ของคุณ:</label><br>
                 <input id = "admin_user" type = "text" name = "admin_user" value = ""><br><br>
             
@@ -90,7 +90,7 @@
                 <input id = "admin_conf" type = "password" name = "admin_conf" value = ""><br><br>
 
                 <input class = "login" type = "submit" name = "continue" value = "ดำเนินการต่อ →">
-            </form></div>
+            </form>
 <?php
         }
 ?>
