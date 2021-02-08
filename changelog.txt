@@ -5,9 +5,13 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.3_06
+	* redirect to wrong page
+	* i should go to sleep
+	
 Beta 1.0.3_05
 	* minor bug fixed: button not centered
-	
+
 Beta 1.0.3_04
 	* minor bug fixed: button not in theme
 	* minor bug fixed: redirect working

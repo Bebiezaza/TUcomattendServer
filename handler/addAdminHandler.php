@@ -21,6 +21,9 @@
 <?php
         if(isset($_POST['continue']))
         {
+            $user = $_POST["user"];
+            $pass = $_POST["pass"];
+
             $admin_user = $_POST["admin_user"];
             $admin_pass = $_POST["admin_pass"];
             $admin_conf = $_POST["admin_conf"];
@@ -29,7 +32,9 @@
             {
                 echo "ไม่ได้ระบุชื่อผู้ใช้";
 ?>
-                <form method = 'post' name = 'continue2' action = '../index.php'>
+                <form method = 'post' name = 'continue2' action = '../landing.php'>
+                    <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                    <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                     <input class = "login" type = 'submit' value = '← ย้อนกลับ'>
                 </form>
 <?php
@@ -38,7 +43,9 @@
             {
                 echo "ยืนยันรหัสไม่ผ่าน";
 ?>
-                <form method = 'post' name = 'continue2' action = '../index.php'>
+                <form method = 'post' name = 'continue2' action = '../landing.php'>
+                    <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                    <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
                     <input class = "login" type = 'submit' value = '← ย้อนกลับ'>
                 </form>
 <?php
