@@ -28,6 +28,11 @@
             if($admin_user == "")
             {
                 echo "ไม่ได้ระบุชื่อผู้ใช้";
+?>
+                <form method = 'post' name = 'continue2' action = 'index.php'>
+                    <input type = 'submit' value = '← ย้อนกลับ'>
+                </form>
+<?php
             }
             else if($admin_pass != $admin_conf)
             {

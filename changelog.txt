@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.0.3_03
+	* minor bug fixed: missing button
+	
 Beta 1.0.3_02
 	* minor bug fixed; register field can be empty
 	
