@@ -65,7 +65,7 @@
                 }
             }
 ?>
-            <table cellpadding=5>
+            <table class = "pure-table-horizontal" cellpadding = 5>
                 <tr>
                     <th></th>
                     <th>ด้านการเชื่อมโยงข้อมูล</th>
@@ -89,6 +89,10 @@
 <!-- student-class connection -->
 <?php
                         redirect($user, $pass, "handler/addStudentToClassHandler.php", "เชื่อมโยงรหัสนักเรียนกับห้องเรียน");
+//   get classroom info
+                        echo "<br>";
+                        redirectDroplist($conn, $user, $pass, "fetch/classroomInfoFetcher.php", "classroom", "เลือกห้องเรียน", "classroom", "classroom_info", "แสดงข้อมูล/แก้ไขข้อมูลห้องเรียน");
+                        echo "<br>";
 //   academic year change
                         redirect($user, $pass, "handler/yearChangeHandler.php", "เริ่มปีการศึกษาใหม่");
 ?>                  

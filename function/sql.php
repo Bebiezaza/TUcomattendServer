@@ -72,10 +72,10 @@
     function redirectCustom($user, $pass, $notice, $dir, $buttonClass, $text)
     {
         echo "$notice";
-        echo "<form method = 'post' action = $dir autocomplete = 'off'>";
+        echo "<form method = 'post' action = '$dir' autocomplete = 'off'>";
             echo "<input type = 'hidden' id = 'user' type = 'text' name = 'user' value = $user>";
             echo "<input type = 'hidden' id = 'pass' type = 'password' name = 'pass' value = $pass>";
             echo "<input class = '$buttonClass' type = 'submit' value = '$text'>";
         echo "</form>";
-    }
+    }    
 ?>

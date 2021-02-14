@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.1.2
+	+ change student's info in classroom
+	
 Beta 1.1.1
 	+ delete student's account through admins
 	
