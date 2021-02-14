@@ -5,28 +5,22 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.1.0
+	+ turned some repeated set of codes into functions
+	* IP record now handles IPv6
+	- databases creation are now to be handled by user instead of system
+	- removed computer IP column from classroom log fetcher
+	
+	bug fixes
+	* disconnects SQL after every page finishes accessing SQL
+	* (internal) adhere coding to self coding convention
+	* (internal) fix all SQL coding leaks
+
 Beta 1.0.4
 	+ student's password change ability through admins
-
-Beta 1.0.3_06
-	* redirect to wrong page
-	* i should go to sleep
 	
-Beta 1.0.3_05
-	* minor bug fixed: button not centered
-
-Beta 1.0.3_04
-	* minor bug fixed: button not in theme
-	* minor bug fixed: redirect working
-
-Beta 1.0.3_03
-	* minor bug fixed: missing button
-	
-Beta 1.0.3_02
-	* minor bug fixed; register field can be empty
-	
-Beta 1.0.3_01
-	* minor bug fixed; register field can be empty
+Beta 1.0.3_01 to Beta 1.0.3_10
+	* bug fixes about adding admins 
 	
 Beta 1.0.3
 	+ ability to add more admins

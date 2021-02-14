@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Kanit;
+    src: url(../fonts/Kanit-Regular.ttf)
+}
+
 header {
     font-family: 'Kanit', serif;
 }

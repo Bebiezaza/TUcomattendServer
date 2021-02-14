@@ -3,38 +3,33 @@
     <head>
         <meta charset = "utf-8">
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
-    </head>
-    <link href="../css/theme.css" rel="stylesheet"/>
-        
-<style>
-    @font-face {
-        font-family: Kanit;
-        src: url(../fonts/Kanit-Regular.ttf)
-    }
-</style>
 
-    <body><center>
+<link href="../css/theme.css" rel="stylesheet"/>
+    </head>
+
+    <body>
         <header>
             <p class = "header"><IMG id = "TUlogo" src = "../pictures/phrakiao.png">เปลี่ยนปีการศึกษา</p>
         </header>
-        <body>
+
+        <center>
 <?php
-        $user = $_POST["user"];
-        $pass = $_POST["pass"];
+            $user = $_POST["user"];
+            $pass = $_POST["pass"];
 
-        if(isset($_POST['continue']))
-        {
-            include('../config.php');
-            include('../function/sql.php');
-            $conn = mysqli_connect($db_host, $db_user, $db_pass);
+            if(isset($_POST['continue']))
+            {
+                include('../config.php');
+                include('../function/sql.php');
+                $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
-                //select database
+            //select database
                 selectDB($conn, "$db_name");
 
             //drop table classrooom_info
-            $sql = "DROP TABLE classroom_info;";
+                $sql = "DROP TABLE classroom_info;";
 
-                work($conn, $sql, "", "Error Dropping 'classroom_info' Table: ", false);
+                work($conn, $sql, "", "เกิดปัญหาระหว่างการเปลี่ยนปีการศึกษา: ");
 
             //create classroom_info table
                 //class number loop
@@ -44,40 +39,36 @@
                     $class_no = $class_no . "student_" . $i . " int(5),";
                 }
 
-            $sql = "CREATE TABLE classroom_info( 
-                classroom int(3),
-                $class_no
-                primary key(classroom));";
+                $sql = "CREATE TABLE classroom_info( 
+                    classroom int(3),
+                    $class_no
+                    primary key(classroom));";
 
-                //create table
-                work($conn, $sql, "<h3>หลังจากเปลี่ยนปีการศึกษาแล้ว อย่าลืมเชื่อมรหัสนักเรียนกับห้องเรียนใหม่ด้วย</h3>", "Error Creating 'classroom_info' Table: ", false);
+                    //create table
+                    work($conn, $sql, "<h3>หลังจากเปลี่ยนปีการศึกษาแล้ว อย่าลืมเชื่อมรหัสนักเรียนกับห้องเรียนใหม่ด้วย</h3>", "เกิดปัญหาระหว่างการเปลี่ยนปีการศึกษา: ");
 
-            //sql disconnect
-            mysqli_close($conn);
-?>        
-            <form method = "post" action = "../landing.php">
-                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
-                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
-                <input class = "login" type = "submit" value = "> กลับสู่หน้าเดิม <">
-            </form>
-<?php
-        }
-        else
-        {
+                //sql disconnect
+                mysqli_close($conn);
+
+                redirectCustom($user, $pass, "", "../landing.php", "login", "เสร็จสิ้น →");
+            }
+            else
+            {
 ?>
-        <h1><font color="red"><br>คำเตือน: การเริ่มปีการศึกษาใหม่ไม่สามารถย้อนกลับได้ <br> คุณต้องการทำต่อหรือไม่?</font></h1><br><br>
-            <form method = "post" action = "../landing.php">
-                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
-                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
-                <input class = "login_fail" type = "submit" value = "← ย้อนกลับ">
-            </form>
-            <form method = "post">
-                <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
-                <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
-                <input class = "login" type = "submit" name = "continue" value = "ดำเนินการต่อ →">
-            </form>
+                <h1><font color="red"><br>คำเตือน: การเริ่มปีการศึกษาใหม่ไม่สามารถย้อนกลับได้ <br> คุณต้องการทำต่อหรือไม่?</font></h1><br><br>
+                <form method = "post" action = "../landing.php">
+                    <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                    <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                    <input class = "login_fail" type = "submit" value = "← ย้อนกลับ">
+                </form>
+                <form method = "post">
+                    <input type = "hidden" id = "user" type = "text" name = "user" value = <?php echo $user; ?>>
+                    <input type = "hidden" id = "pass" type = "password" name = "pass" value = <?php echo $pass; ?>>
+                    <input class = "login" type = "submit" name = "continue" value = "ดำเนินการต่อ →">
+                </form>
 <?php
-        }
+            }
 ?>
-</center></body>
+        </center>
+    </body>
 </html>
