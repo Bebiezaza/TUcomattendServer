@@ -5,6 +5,9 @@
 * = Changed, Tweaked, Fixed
 
 
+Beta 1.1.1
+	+ delete student's account through admins
+	
 Beta 1.1.0
 	+ turned some repeated set of codes into functions
 	* IP record now handles IPv6
