@@ -61,12 +61,12 @@
                     WHERE classroom = $classroom;";
 
                     //write table
-                    work($conn, $sql, "แก้ไขเรียนสำเร็จ", "ไม่สามารถแก้ไขนักเรียนคนนี้ได้: ");
+                    work($conn, $sql, "แก้ไขนักเรียนสำเร็จ", "ไม่สามารถแก้ไขนักเรียนคนนี้ได้: ");
 
                 //sql disconnect
                     mysqli_close($conn);
 
-                    redirectCustom2($user, $pass, $classroom, "", "", "login", "กลับสู่หน้าเดิม →");
+                    redirectCustom2($user, $pass, $classroom, "", "", "login", "> กลับสู่หน้าเดิม <");
                 }
             }
             else

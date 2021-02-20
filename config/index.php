@@ -25,8 +25,8 @@
                 {
                     echo "ยืนยันรหัสไม่ผ่าน";
 ?>
-                    <form method = 'post' name = 'continue2' action = 'index.php'>
-                        <input type = 'submit' value = '← ย้อนกลับ'>
+                    <form method = 'post' action = 'index.php'>
+                        <input type = 'submit' name = 'continue2' value = '← ย้อนกลับ'>
                     </form>
 <?php
                     die;

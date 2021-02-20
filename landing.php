@@ -25,15 +25,15 @@
                 $pass = $_POST["pass"];
             }
             
-            if ($user == "")
-            {
-                landingFailed($conn, "ไม่ได้ลงชื่อผู้ใช้งาน");
-            }
-
             error_reporting(0);
             include('config.php');
             include('function/sql.php');
             $conn = mysqli_connect($db_host, $db_user, $db_pass);
+
+            if ($user == "")
+            {
+                landingFailed($conn, "ไม่ได้ลงชื่อผู้ใช้งาน");
+            }
 
             //select database
             selectDB($conn, "$db_name");

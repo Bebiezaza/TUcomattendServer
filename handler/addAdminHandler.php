@@ -28,11 +28,11 @@
 
                 if($admin_user == "")
                 {
-                    redirectCustom($user, $pass, "ไม่ได้ระบุชื่อผู้ใช้", "../landing.php", "login_fail", "← ย้อนกลับ");
+                    redirectCustom($user, $pass, "ไม่ได้ระบุชื่อผู้ใช้", "", "login_fail", "← ย้อนกลับ");
                 }
                 else if($admin_pass != $admin_conf)
                 {
-                    redirectCustom($user, $pass, "ยืนยันรหัสไม่ผ่าน", "../landing.php", "login_fail", "← ย้อนกลับ");
+                    redirectCustom($user, $pass, "ยืนยันรหัสไม่ผ่าน", "", "login_fail", "← ย้อนกลับ");
                 }
                 else
                 {
@@ -77,5 +77,11 @@
             }
 ?>
         </center>
+
+        <footer>
+<?php
+            redirectCustom($user, $pass, "", "../landing.php", "", "กลับสู่หน้าหลัก");
+?>
+        </footer>
     </body>
 </html>

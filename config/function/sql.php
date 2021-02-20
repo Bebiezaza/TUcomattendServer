@@ -8,7 +8,11 @@
             
             //sql disconnect
             mysqli_close($conn);
-
+?>
+        <form method = "post" action = index.php>
+            <input type = submit value = "← ย้อนกลับ">
+        </form>
+<?php
             die;
         }
     }
@@ -33,8 +37,8 @@
     {
         include('../config.php');
         
-        $db_name = $_POST["db_name"];
-
+        if ($_POST["db_name"]) $db_name = $_POST["db_name"];
+        
         $sql = "DROP DATABASE $db_name;";
         
         if (!mysqli_query($conn, $sql))
@@ -47,9 +51,6 @@
         else
         {
             echo "System Reset Stage 1 Successful<br>";
-            mysqli_close($conn);
-            echo "<form method = 'post' name = $formbehave action = 'index.php'><input type = 'submit' value = '← ย้อนกลับ'></form>";
-            
         }
 
         $sql2 = "CREATE DATABASE $db_name COLLATE utf8_general_ci;";
@@ -67,7 +68,7 @@
             echo "System Reset Successfully<br>";
             mysqli_close($conn);
             echo "<form method = 'post' name = $formbehave action = 'index.php'><input type = 'submit' value = '← ย้อนกลับ'></form>";
-            
+            die;
         }
     }
 ?>

@@ -28,12 +28,12 @@
 
                 if($student_user == "")
                 {
-                    redirectCustom($user, $pass, "ไม่ได้ระบุชื่อผู้ใช้", "../landing.php", "login_fail", "← ย้อนกลับ");
+                    redirectCustom($user, $pass, "ไม่ได้ระบุชื่อผู้ใช้", "", "login_fail", "← ย้อนกลับ");
                     die;
                 }
                 else if($student_pass != $student_conf)
                 {
-                    redirectCustom($user, $pass, "ยืนยันรหัสไม่ผ่าน", "../landing.php", "login_fail", "← ย้อนกลับ");
+                    redirectCustom($user, $pass, "ยืนยันรหัสไม่ผ่าน", "", "login_fail", "← ย้อนกลับ");
                     die;
                 }
                 else
@@ -48,7 +48,7 @@
                     {
                         if (mysqli_num_rows($row) == 0)
                         {
-                            redirectCustom($user, $pass, "ไม่มีชื่อผู้ใช้นี้ในระบบ", "../landing.php", "login_fail", "← ย้อนกลับ");
+                            redirectCustom($user, $pass, "ไม่มีชื่อผู้ใช้นี้ในระบบ", "", "login_fail", "← ย้อนกลับ");
                             die;
                         }
                     }
@@ -91,5 +91,11 @@
             }
 ?>
         </center>
+
+        <footer>
+<?php
+            redirectCustom($user, $pass, "", "../landing.php", "", "กลับสู่หน้าหลัก");
+?>
+        </footer>
     </body>
 </html>
