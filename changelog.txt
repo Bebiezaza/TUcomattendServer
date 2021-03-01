@@ -5,9 +5,20 @@
 * = Changed, Tweaked, Fixed
 
 
+1.0.0
+	* properly named function files
+
 Beta 1.1.3
 	minor bug fixes
-		* check github split changes I can't be bothered to summarize all fixes :v
+		* readded missing button at config page upon failure to find database
+		* missing variable on system reset stage
+		* ability to go back upon first stage of system reset removed
+		* system do not properly end at the end of system reset stage
+		* variables on the wrong location resulting into broken script
+		* line splitter on landing page now properly shows
+		* redirect buttons arrows fixed
+		* redirect goes over pages fixed
+		* many handlers now have "go back" button on the button left of the page
 		
 Beta 1.1.2
 	+ change student's info in classroom

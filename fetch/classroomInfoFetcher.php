@@ -5,7 +5,6 @@
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
     
 <link href="../css/theme.css" rel="stylesheet"/>
-<link href="../css/table2.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -16,7 +15,8 @@
         <center>
 <?php
             include('../config.php');
-            include('../function/sql.php');
+            include('../function/sqlHelper.php');
+            include('../function/formHelper.php');
             
             $user = $_POST["user"];
             $pass = $_POST["pass"];
@@ -111,7 +111,7 @@
                             else { $j = $i; }
                             echo "<tr>";
                             echo "<th>นักเรียนคนที่ $j:</th>";
-                            echo "<td>" . $row["student_$i"] . "</td>";
+                            echo "<td class='classList'>" . $row["student_$i"] . "</td>";
                             echo "</tr>";
                         }
                     }

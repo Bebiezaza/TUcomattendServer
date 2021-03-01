@@ -5,7 +5,6 @@
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
 
 <link href="css/theme.css" rel="stylesheet"/>
-<link href="css/table.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -25,9 +24,10 @@
                 $pass = $_POST["pass"];
             }
             
-            error_reporting(0);
+            //error_reporting(0);
             include('config.php');
-            include('function/sql.php');
+            include('function/sqlHelper.php');
+            include('function/formHelper.php');
             $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
             if ($user == "")
@@ -65,27 +65,27 @@
                 }
             }
 ?>
-            <table class = "pure-table-horizontal" cellpadding = 5>
+            <table cellpadding = 5>
                 <tr>
                     <th></th>
                     <th>ด้านการเชื่อมโยงข้อมูล</th>
                     <th>ด้านการเรียกข้อมูล</th>
                 </tr><tr>
-                    <td><h3>คอมพิวเตอร์</h3></td>
-                    <td>
+                    <td class="landing"><h3>คอมพิวเตอร์</h3></td>
+                    <td class="landing">
 <!-- computer ip-name connection -->
 <?php
                         redirect($user, $pass, "handler/addComputerHandler.php", "เชื่อมโยงคอมพิวเตอร์กับไอพี");
 ?>
-                    </td><td>
+                    </td><td class="landing">
 <!-- show log for computer -->
 <?php
                         redirectDroplist($conn, $user, $pass, "fetch/computerLogFetcher.php", "com_name", "เลือกคอมพิวเตอร์", "com_name", "computer_select", "แสดงข้อมูลจากคอมพิวเตอร์ที่เลือก");
 ?>
                     </td>
                 </tr><tr>
-                    <td><h3>ห้องเรียน</h3></td>
-                    <td>
+                    <td class="landing"><h3>ห้องเรียน</h3></td>
+                    <td class="landing">
 <!-- student-class connection -->
 <?php
                         redirect($user, $pass, "handler/addStudentToClassHandler.php", "เชื่อมโยงรหัสนักเรียนกับห้องเรียน");
@@ -97,29 +97,29 @@
                         redirect($user, $pass, "handler/yearChangeHandler.php", "เริ่มปีการศึกษาใหม่");
 ?>                  
                     </td>
-                    <td>
+                    <td class="landing">
 <!-- show log for classroom -->
 <?php
                         redirectDroplist($conn, $user, $pass, "fetch/classroomLogFetcher.php", "classroom", "เลือกห้องเรียน", "classroom", "classroom_info", "แสดงข้อมูลจากห้องเรียนที่เลือก");
 ?>
                     </td>
                 </tr><tr>
-                    <td><h3>ข้อมูลส่วนกลาง</h3></td>
-                    <td>
+                    <td class="landing"><h3>ข้อมูลส่วนกลาง</h3></td>
+                    <td class="landing">
 <!-- add admins -->
 <?php
                         redirect($user, $pass, "handler/addAdminHandler.php", "เพิ่มผู้ดูแลระบบ");
 ?>
                     </td>
-                    <td>
+                    <td class="landing">
 <!-- show all log -->
 <?php
                         redirect($user, $pass, "fetch/allLogFetcher.php", "แสดงข้อมูลการใช้คอมพิวเตอร์ทั้งหมด");
 ?>
                     </td>
                 </tr><tr>
-                    <td><h3>บัญชีนักเรียน</h3></td>
-                    <td>
+                    <td class="landing"><h3>บัญชีนักเรียน</h3></td>
+                    <td class="landing">
 <!-- change student's password -->
 <?php
                         redirect($user, $pass, "handler/changePasswordHandler.php", "แก้ไขรหัสผ่านนักเรียน");
@@ -130,7 +130,7 @@
                         mysqli_close($conn);
 ?>
                     </td>
-                    <td></td>
+                    <td class="landing"></td>
                 </tr>
             </table><br>
             

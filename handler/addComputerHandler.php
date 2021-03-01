@@ -20,7 +20,8 @@
             if(isset($_POST["continue"]))
             {
                 include('../config.php');
-                include('../function/sql.php');
+                include('../function/sqlHelper.php');
+                include('../function/formHelper.php');
 
                 $com_name = $_POST["com_name"];
                 $com_ip = $_POST["com_ip"];

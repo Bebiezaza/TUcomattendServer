@@ -15,7 +15,8 @@
         <center>
 <?php
             include('../config.php');
-            include('../function/sql.php');
+            include('../function/sqlHelper.php');
+            include('../function/formHelper.php');
             
             $user = $_POST["user"];
             $pass = $_POST["pass"];

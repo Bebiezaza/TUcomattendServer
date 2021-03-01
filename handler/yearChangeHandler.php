@@ -20,7 +20,8 @@
             if(isset($_POST['continue']))
             {
                 include('../config.php');
-                include('../function/sql.php');
+                include('../function/sqlHelper.php');
+                include('../function/formHelper.php');
                 $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
             //select database
