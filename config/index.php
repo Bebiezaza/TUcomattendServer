@@ -4,7 +4,7 @@
         <meta charset = "utf-8">
         <title>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์ โรงเรียนเตรียมอุดมศึกษา</title>
 
-<link href="theme.css" rel="stylesheet"/>
+<link href="css/theme.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -34,7 +34,7 @@
                 else
                 {
                     include('../config.php');
-                    include('function/sql.php');
+                    include('function/sqlHelper.php');
                     
                     $conn = mysqli_connect($db_host, $db_user, $db_pass);
 
@@ -84,7 +84,7 @@
             }
             elseif(isset($_POST['continue1']))
             {
-                include('function/sql.php');
+                include('function/sqlHelper.php');
 
                 $db_host = $_POST["db_host"];
                 $db_name = $_POST["db_name"];
