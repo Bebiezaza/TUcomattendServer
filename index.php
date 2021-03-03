@@ -1,3 +1,8 @@
+<!-- ==============================================================
+     TUcomattendServer: homepage
+     Copyright (C) 2020-2021, Bhumipat Apipunnakul TU83
+     ============================================================== -->
+
 <!DOCTYPE HTML>
 <html lang = "th">
     <head>
@@ -9,7 +14,7 @@
 
     <body>
         <header>
-            <p class = "header"><IMG id = "TUlogo" src = "pictures/phrakiao.png">ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
+            <p class = "header"><a href=credit.php><IMG id = "TUlogo" src = "pictures/phrakiao.png"></a>ระบบตรวจสอบการเข้าใช้คอมพิวเตอร์</p>
         </header>
 
         <center>

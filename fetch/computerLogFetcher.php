@@ -1,3 +1,8 @@
+<!-- ==============================================================
+     TUcomattendServer: log fetcher per computer
+     Copyright (C) 2020-2021, Bhumipat Apipunnakul TU83
+     ============================================================== -->
+
 <!DOCTYPE HTML>
 <html lang = "th">
     <head>

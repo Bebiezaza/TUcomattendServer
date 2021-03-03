@@ -1,3 +1,8 @@
+<!-- ==============================================================
+     TUcomattendServer: homepage for configurator
+     Copyright (C) 2020-2021, Bhumipat Apipunnakul TU83
+     ============================================================== -->
+
 <!DOCTYPE HTML>
 <html lang = "th">
     <head>

@@ -1,3 +1,13 @@
+<!-- ==============================================================
+     TUcomattendServer: HTML form functions
+     Available functions:
+     *  landingFailed
+     *  redirect
+     *  redirectCustom
+     *  redirectDroplist
+     Copyright (C) 2020-2021, Bhumipat Apipunnakul TU83
+     ============================================================== -->
+
 <?php
 //landing failed notice
     function landingFailed($conn, $text)
